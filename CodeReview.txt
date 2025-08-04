@@ -1,0 +1,28 @@
+Naming Conventions :
+    1. Rename the class name from "account" to "Account", as the name of the class start with capital letter to follow java naming convention for class names.
+    2. Method names should follow camel case, e.g: "createTimestampAndExpirydate" should name as "createTimestampAndExpiryDate". It improves better readability.
+    3. Proper naming of variables such as "return1". It can be re-named as "timeStamp".
+
+Access modifiers and Encapsulation :
+    1. Add proper access modifier to all the methods and variable in the class.
+    2. Use private access modifier for the variable "accountNumber" and use getter and setter method.
+
+Generics :
+    1. Avoid using types such as List and ArrayList, instead use generics for example : List<dbTransaction> dbTransactionList and ArrayList<Transaction> transactionList.
+
+Hashing and Equality mechanism :
+    1. Since equal method is overridden, hashCode method should also be overridden.
+    2. Method signature should be public boolean equals(Object o) to properly override equals method.
+    3. Improper use of "==" operator for comparing string values in equals method. Instead use .equals().
+
+Bug :
+    1. In the method createTimestampAndExpirydate, string array return1 initialize with empty array. Initialize the size of array to 2 before assigning values to avoid run time error.
+    2. Improper handling of error. the method getTransactions catches "SQLException" and throws "Exception", this will hide the actual cause of error in stack trace.
+    3. Use latest type casting feature of java "new Float(currencyAmountInPounds * 1.10)", instead use "((float) currencyAmountInPounds * 1.10)".
+
+Code Maintain and Readability :
+    1. Use single responsibility principle. The method makeTransactionFromDbRow is doing multiple task, it will be difficult to understand the functionality of the method, to improve the readability split the logic into separate methods.
+    2. Avoid calling the same method "LocalDateTime.now();" multiple times inside a method, instead store the value in a variable and use it.
+    3. Use constant variables instead of using the values directly in the logic, in this way it will define the value and improve readability.
+    4. Remove commented code to reduce unnecessary lines.
+    5. Provide meaningful comments and remove unwanted comments.
