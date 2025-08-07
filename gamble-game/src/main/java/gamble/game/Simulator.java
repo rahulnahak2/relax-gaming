@@ -5,6 +5,9 @@ import java.util.*;
 public class Simulator {
     Symbol[][] grid = new Symbol[8][8];
 
+    /**
+     * generate initial grid for the game
+     */
     public void generateGrid() {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
@@ -13,6 +16,10 @@ public class Simulator {
         }
     }
 
+    /**
+     * find the cluster for each symbol present in grid
+     * @return the list of symbols with their location in the grid
+     */
     public List<Set<Position>> findClusters() {
         boolean[][] visited = new boolean[8][8];
         List<Set<Position>> clusters = new ArrayList<>();
@@ -81,6 +88,9 @@ public class Simulator {
         }
     }
 
+    /**
+     * perform avalanche in the grid
+     */
     public void performAvalanche() {
         for (int col = 0; col < 8; col++) {
             int empty = 7;
