@@ -2,7 +2,13 @@ package gamble.game;
 
 import java.util.Map;
 
+/**
+ * generate payment table
+ */
 public class PayoutTable {
+    /**
+     * defines payment for each symbol
+     */
     private static final Map<Symbol, int[]> payouts = Map.of(
             Symbol.H1, new int[]{5, 6, 7, 8, 10},
             Symbol.H2, new int[]{4, 5, 6, 7, 9},
@@ -14,6 +20,9 @@ public class PayoutTable {
             Symbol.L8, new int[]{1, 2, 3, 4, 5}
     );
 
+    /**
+     * calculate payout according to number of each symbol present in cluster
+     */
     public static int getPayout(Symbol symbol, int size) {
         if (!symbol.isPayable()) return 0;
         if (!payouts.containsKey(symbol)) return 0;
